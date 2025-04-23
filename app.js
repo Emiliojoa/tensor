@@ -1,10 +1,8 @@
 import tf from '@tensorflow/tfjs';
 import promptSync from 'prompt-sync';
 
-// Inicializa prompt-sync
 const prompt = promptSync();
 
-// Solicita el tamaño de la matriz
 const matrizSize = parseInt(prompt("Ingrese el tamaño de la matriz: "), 10);
 
 if (isNaN(matrizSize) || matrizSize <= 0) {
@@ -12,17 +10,17 @@ if (isNaN(matrizSize) || matrizSize <= 0) {
     process.exit(1);
 }
 
-// Genera tensores aleatorios
+
 const x = tf.randomUniform([matrizSize, matrizSize], 1, 20, 'int32');
 const y = tf.randomUniform([matrizSize, matrizSize], 1, 20, 'int32');
 
-// Suma de las matrices
+
 const suma = tf.add(x, y);
 
-// Multiplicación de las matrices
+
 const multiplicacion = tf.matMul(x, y);
 
-// Imprime las matrices
+
 console.log("Matriz X:");
 x.print();
 
